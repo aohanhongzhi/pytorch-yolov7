@@ -1,6 +1,6 @@
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
-train: E:/PythonDemoSpace/study/yolov7/VOCdevkit/images/train  # 118287 images
-val: E:/PythonDemoSpace/study/yolov7/VOCdevkit/images/val  # 5000 images
+train: /home/eric/Project/Python/pytorch-yolov7/VOCdevkit/images/train  # 118287 images
+val: /home/eric/Project/Python/pytorch-yolov7/VOCdevkit/images/val  # 5000 images
 # number of classes
 nc: 2
 

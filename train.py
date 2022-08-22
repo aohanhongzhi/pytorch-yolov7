@@ -521,7 +521,7 @@ def train(hyp, opt, device, tb_writer=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default=r'E:\PythonDemoSpace\study\yolov7\yolov7.pt', help='initial weights path')
+    parser.add_argument('--weights', type=str, default=r'/home/eric/Project/Python/pytorch-yolov7/yolov7.pt', help='initial weights path')
     parser.add_argument('--cfg', type=str, default='', help='model.yaml path')
     parser.add_argument('--data', type=str, default='data/voc.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.scratch.p5.yaml', help='hyperparameters path')

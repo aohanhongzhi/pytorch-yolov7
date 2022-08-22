@@ -9,6 +9,7 @@ from shutil import copyfile
 classes = ["dog","cat"]
 # classes=["ball"]
 
+#  训练集与验证集的比例 50%
 TRAIN_RATIO = 50
 
 
