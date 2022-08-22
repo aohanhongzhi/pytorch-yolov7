@@ -6,8 +6,6 @@ https://github.com/qiaofengsheng/pytorch-yolov7
 
 https://www.bilibili.com/video/BV1kU4y1i7Ts
 
-
-
 使用yolov7训练自己的数据集
 
 参考：https://github.com/WongKinYiu/yolov7
@@ -15,7 +13,6 @@ https://www.bilibili.com/video/BV1kU4y1i7Ts
 模型下载
 
 https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
-
 
 # voc转yolo
 
@@ -26,7 +23,6 @@ python3 voc_to_yolo.py
 # 修改
 
 ![](assets/20220822_145556_image.png)
-
 
 # 使用官方的默认模型跑数据
 
@@ -47,5 +43,37 @@ python3 detect.py
 
 ![](assets/20220822_152936_image.png)
 
-
 traced_model.pt 这个文件是在运行 `python3 detect.py` 自动生成的记录文件，不是模型文件。
+
+
+# 自己准备数据，训练模型
+
+## 安装labelImg
+
+https://github.com/heartexlabs/labelImg
+
+```shell
+pip3 install labelImg
+labelImg
+```
+
+![](assets/20220822_211126_image.png)
+
+
+![](assets/20220822_211309_image.png)
+
+
+
+将自己标记的数据，整理好放到对应文件夹
+
+
+![](assets/20220822_211430_image.png)
+
+
+0 0.571000 0.637931 0.470000 0.494929
+
+1 表示对应的分类，这里是两种cat和dog，cat是1，dog是0
+
+第2，3个值表示识别的物体的中心点和图片的比例。
+
+第2，3个值表示识别的物体的高度与宽度和原图的比例。
