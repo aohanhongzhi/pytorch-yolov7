@@ -94,6 +94,26 @@ https://blog.csdn.net/frcbob/article/details/123440979
 
 ![img.png](assets/threshold.png)
 
+# 视频处理
+
+视频经过算法之后就没有了声音，所以想要有声音就需要特殊处理。yolo算法本身应该是无法处理音频的。
+
+1. 预先提取下视频里面的音频保留。
+
+```shell
+ffmpeg -i '视频文件.mp4' -q:a 0 -map a output.mp3
+```
+
+> https://blog.csdn.net/Mr_robot_strange/article/details/121156451
+
+2. 把yolo跑出来的数据和上面预先提取的音频合并下即可。
+
+```shell
+ffmpeg -i 'yolo的结果视频文件没有声音.mp4'  -i 'output.mp3'  -c:v copy -c:a aac -strict experimental -map 0:v:0 -map 1:a:0 yolo结果有声音的文件.mp4
+```
+
+> https://www.zhihu.com/question/300182407
+
 # 应用场景
 
 1. [判断带没带头盔](https://zhuanlan.zhihu.com/p/547878330)
