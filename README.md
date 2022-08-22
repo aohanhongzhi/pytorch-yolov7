@@ -10,28 +10,30 @@ https://www.bilibili.com/video/BV1kU4y1i7Ts
 
 参考：https://github.com/WongKinYiu/yolov7
 
-模型下载
-
-https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
 
 # voc转yolo
 
 ```shell
 python3 voc_to_yolo.py
 ```
+> 可以直接使用LabelImg来获取Yolo格式的数据集
 
-# 修改
+
+## 修改地址，数据转换（不是很重要）
 
 ![](assets/20220822_145556_image.png)
 
 # 使用官方的默认模型跑数据
 
+模型下载
+
+https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
+
+
 1. 添加需要识别的图片或者视频到`inference/images`文件夹里。
 2. 运行以下脚本
 
 ```shell
-
-
 python3 detect.py
 ```
 
@@ -64,19 +66,42 @@ labelImg
 
 
 
-将自己标记的数据，整理好放到对应文件夹
+将自己标记的数据，整理好放到下面对应文件夹
 
 
 ![](assets/20220822_211430_image.png)
 
-
+```text
 0 0.571000 0.637931 0.470000 0.494929
+```
 
-1 表示对应的分类，这里是两种cat和dog，cat是1，dog是0
+第一个数字 0 表示对应的分类，这里是两种cat和dog，cat是1，dog是0
 
 第2，3个值表示识别的物体的中心点和图片的比例。
 
 第2，3个值表示识别的物体的高度与宽度和原图的比例。
+
+## 直接训练即可
+
+```shell
+python3 train.py
+```
+
+## 自己训练得到的模型文件
+
+![img.png](assets/model_result.png)
+
+![img_1.png](assets/replace_model.png)
+
+## 最后效果
+
+![img_2.png](assets/final_result.png)
+
+> 如果最后结果没有识别出来啥，建议调整阈值即可
+![img.png](assets/threshold.png)
+
+
+一般来说需要足够多达标的数据才有比较好的结果
 
 # 调参
 

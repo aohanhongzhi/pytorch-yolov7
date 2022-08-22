@@ -159,7 +159,7 @@ def detect(save_img=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default='yolov7.pt', help='model.pt path(s)')
+    parser.add_argument('--weights', nargs='+', type=str, default='runs/train/exp10/weights/best.pt', help='model.pt path(s)')
     parser.add_argument('--source', type=str, default='inference/images', help='source')  # file/folder, 0 for webcam
     parser.add_argument('--img-size', type=int, default=640, help='inference size (pixels)')
     # 如果自己打标的数据，训练出来的模型，怎么也无法检测出目标，那么可以尝试修改下面阈值，改到比较低的值试试。
