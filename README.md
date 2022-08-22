@@ -1,5 +1,13 @@
 # pytorch-yolov7
 
+https://blog.csdn.net/qq_45194640/article/details/125952860
+
+https://github.com/qiaofengsheng/pytorch-yolov7
+
+https://www.bilibili.com/video/BV1kU4y1i7Ts
+
+
+
 使用yolov7训练自己的数据集
 
 参考：https://github.com/WongKinYiu/yolov7
