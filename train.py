@@ -2,6 +2,7 @@ import argparse
 import logging
 import math
 import os
+import sys
 import random
 import time
 from copy import deepcopy
@@ -520,8 +521,10 @@ def train(hyp, opt, device, tb_writer=None):
 
 
 if __name__ == '__main__':
+    # TODO　自动下载pt文件
+    yolov7pt = sys.path[0] + "/yolov7.pt"
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default=r'/home/eric/Project/Python/pytorch-yolov7/yolov7.pt', help='initial weights path')
+    parser.add_argument('--weights', type=str, default=yolov7pt, help='initial weights path')
     parser.add_argument('--cfg', type=str, default='', help='model.yaml path')
     parser.add_argument('--data', type=str, default='data/voc.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.scratch.p5.yaml', help='hyperparameters path')
