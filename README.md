@@ -8,9 +8,17 @@
 
 https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
 
+
+# voc转yolo
+
+```shell
+python3 voc_to_yolo.py
+```
+
 # 修改
 
 ![](assets/20220822_145556_image.png)
+
 
 # 使用官方的默认模型跑数据
 
@@ -30,3 +38,6 @@ python3 detect.py
 3. 结果在下图
 
 ![](assets/20220822_152936_image.png)
+
+
+traced_model.pt 这个文件是在运行 `python3 detect.py` 自动生成的记录文件，不是模型文件。
