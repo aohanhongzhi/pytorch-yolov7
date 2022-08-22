@@ -77,3 +77,27 @@ labelImg
 第2，3个值表示识别的物体的中心点和图片的比例。
 
 第2，3个值表示识别的物体的高度与宽度和原图的比例。
+
+# 调参
+
+## 针对特定的类别识别处理
+
+https://blog.csdn.net/frcbob/article/details/123440979
+
+![img.png](assets/special.png)
+
+## 设置识别的准确度阈值
+
+默认0.25
+
+> 如果自己打标的数据，训练出来的模型，怎么也无法检测出目标，那么可以尝试修改下面阈值，改到比较低的值试试。
+
+![img.png](assets/threshold.png)
+
+# 应用场景
+
+1. [判断带没带头盔](https://zhuanlan.zhihu.com/p/547878330)
+
+# Refer
+
+1. [YoloV7:训练自己得数据集详细教程](https://blog.csdn.net/zhangdaoliang1/article/details/125719437)
