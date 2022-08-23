@@ -81,6 +81,8 @@ labelImg
 
 第2，3个值表示识别的物体的高度与宽度和原图的比例。
 
+> 归一化处理，0-1范围内。增强泛化能力，这样图像进行压缩处理，也不会影响模型训练。
+
 ## 直接训练即可
 
 ```shell
@@ -146,5 +148,5 @@ ffmpeg -i 'yolo的结果视频文件没有声音.mp4'  -i 'output.mp3'  -c:v cop
 1. [判断带没带头盔](https://zhuanlan.zhihu.com/p/547878330)
 
 # Refer
-
+1. [写给小白的YOLO介绍](https://zhuanlan.zhihu.com/p/94986199)
 1. [YoloV7:训练自己得数据集详细教程](https://blog.csdn.net/zhangdaoliang1/article/details/125719437)
