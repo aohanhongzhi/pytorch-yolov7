@@ -35,9 +35,7 @@ python3 voc_to_yolo.py
 
 https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
 
-### 姿态模型
 
-https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-w6-pose.pt
 
 1. 添加需要识别的图片或者视频到`inference/images`文件夹里。
 2. 运行以下脚本
