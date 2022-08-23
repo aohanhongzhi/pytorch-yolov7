@@ -12,7 +12,6 @@ from utils.datasets import letterbox
 from utils.general import non_max_suppression_kpt
 from utils.plots import output_to_keypoint, plot_skeleton_kpts
 
-
 # In[2]:
 
 
@@ -23,7 +22,6 @@ weigths = torch.load('/home/eric/Project/Python/pytorch-yolov7/yolov7-w6-pose.pt
 model = weigths['model']
 model = model.half().to(device)
 _ = model.eval()
-
 
 # In[3]:
 
@@ -38,7 +36,6 @@ image = image.half()
 
 output, _ = model(image)
 
-
 # In[6]:
 
 
@@ -46,6 +43,8 @@ output = non_max_suppression_kpt(output, 0.25, 0.65, nc=model.yaml['nc'], nkpt=m
 output = output_to_keypoint(output)
 nimg = image[0].permute(1, 2, 0) * 255
 nimg = nimg.cpu().detach().numpy().astype(np.uint8)
+
+# TODO 保留图片的原色
 nimg = cv2.cvtColor(nimg, cv2.COLOR_RGB2BGR)
 for idx in range(output.shape[0]):
     plot_skeleton_kpts(nimg, output[idx, 7:].T, 3)
@@ -64,7 +63,3 @@ cv2.imwrite('person4.jpg', nimg)
 
 
 # In[ ]:
-
-
-
-
