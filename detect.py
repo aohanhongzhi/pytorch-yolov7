@@ -103,7 +103,10 @@ def detect(save_img=False):
                 # Print results
                 for c in det[:, -1].unique():
                     n = (det[:, -1] == c).sum()  # detections per class
-                    s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
+                    if int(c) < len(names):
+                        s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
+                    else:
+                        logger.warning("no {} in names", int(c))
 
                 # Write results
                 for *xyxy, conf, cls in reversed(det):
@@ -116,11 +119,15 @@ def detect(save_img=False):
                     if save_img or view_img:  # Add bbox to image
                         c = int(cls)
                         # 只给指定的类别加上框，也就是筛选再进行分析
-                        if names[c] == "person":
-                            label = f'{names[int(cls)]} {conf:.2f}'
-                            plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
+                        if c < len(names):
+                            if names[c] == "person":
+                                label = f'{names[int(cls)]} {conf:.2f}'
+                                plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
+                            else:
+                                logger.info("{}  is not person", names[c])
                         else:
-                            logger.info(names[c])
+                            logger.warning("there is no {} in names", c)
+                            pass
 
             # Print time (inference + NMS)
             # print(f'{s}Done. ({t2 - t1:.3f}s)')
