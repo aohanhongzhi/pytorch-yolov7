@@ -95,6 +95,8 @@ python3 train.py
 
 ## 最后效果
 
+0.04是置信度
+
 ![img_2.png](assets/final_result.png)
 
 > 如果最后结果没有识别出来啥，建议调整阈值即可
