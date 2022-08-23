@@ -10,3 +10,4 @@ yolov7_val.txt
 yolov7_train.txt
 traced_model.pt
 .idea/
+yolov7-w6-pose.pt
