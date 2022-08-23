@@ -26,7 +26,7 @@ _ = model.eval()
 # In[3]:
 
 
-image = cv2.imread('/home/eric/Project/Python/pytorch-yolov7/2022-08-23_18-39.png')
+image = cv2.imread('/inference/images/2022-08-23_18-39.png')
 image = letterbox(image, 960, stride=64, auto=True)[0]
 image_ = image.copy()
 image = transforms.ToTensor()(image)

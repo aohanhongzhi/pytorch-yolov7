@@ -2,7 +2,6 @@ runs/detect/exp2/person.jpg
 *.pyc
 runs/detect/
 runs/train/
-inference/images/
 VOCdevkit/images
 VOCdevkit/labels
 VOCdevkit/VOC2007
