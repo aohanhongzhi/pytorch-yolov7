@@ -115,7 +115,7 @@ https://blog.csdn.net/frcbob/article/details/123440979
 
 ![img.png](assets/special.png)
 
-## 设置识别的准确度阈值
+## 设置识别的置信度阈值
 
 默认0.25
 
