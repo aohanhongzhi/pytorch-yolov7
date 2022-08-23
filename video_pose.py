@@ -14,7 +14,8 @@ model = weigths['model']
 model = model.half().to(device)
 _ = model.eval()
 
-cap = cv2.VideoCapture('gym_test.mp4')
+# 替换一个正确的视频，代码是可以正常跑的
+cap = cv2.VideoCapture('/home/eric/Videos/TL-IPC44GW-BANDS-ZOOM-DUAL_07-50_20220822_12.40.49.058.mp4')
 if (cap.isOpened() == False):
     print('open failed.')
 
@@ -34,7 +35,7 @@ out = cv2.VideoWriter("result_keypoint.mp4",
 frame_count = 0
 total_fps = 0
 
-while(cap.isOpened):
+while (cap.isOpened):
     ret, frame = cap.read()
     if ret:
         orig_image = frame
@@ -56,7 +57,8 @@ while(cap.isOpened):
         total_fps += fps
         frame_count += 1
 
-        output = non_max_suppression_kpt(output, 0.25, 0.65, nc=model.yaml['nc'], nkpt=model.yaml['nkpt'], kpt_label=True)
+        output = non_max_suppression_kpt(output, 0.25, 0.65, nc=model.yaml['nc'], nkpt=model.yaml['nkpt'],
+                                         kpt_label=True)
         output = output_to_keypoint(output)
         nimg = image[0].permute(1, 2, 0) * 255
         nimg = nimg.cpu().numpy().astype(np.uint8)

@@ -50,7 +50,7 @@ for idx in range(output.shape[0]):
     plot_skeleton_kpts(nimg, output[idx, 7:].T, 3)
 
 # 将结果保存下来
-cv2.imwrite('person4.jpg', nimg)
+cv2.imwrite('assets/person4.jpg', nimg)
 
 # In[12]:
 
