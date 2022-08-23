@@ -10,6 +10,10 @@ https://www.bilibili.com/video/BV1kU4y1i7Ts
 
 参考：https://github.com/WongKinYiu/yolov7
 
+# 当前环境
+
+YOLOR 🚀 225cc2a torch 1.12.1+cu116 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 3910.8125MB)
+
 
 # voc转yolo
 
@@ -25,10 +29,15 @@ python3 voc_to_yolo.py
 
 # 使用官方的默认模型跑数据
 
-模型下载
+## 模型下载
+
+### 
 
 https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
 
+### 姿态模型
+
+https://ghproxy.com/https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-w6-pose.pt
 
 1. 添加需要识别的图片或者视频到`inference/images`文件夹里。
 2. 运行以下脚本
