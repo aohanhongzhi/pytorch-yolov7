@@ -6,8 +6,9 @@ from os.path import join
 import random
 from shutil import copyfile
 
-classes = ["dog","cat"]
+# classes = ["dog","cat"]
 # classes=["ball"]
+classes=["head"]
 
 #  训练集与验证集的比例 50%
 TRAIN_RATIO = 50
@@ -25,17 +26,18 @@ def clear_hidden_files(path):
 
 
 def convert(size, box):
-    dw = 1. / size[0]
-    dh = 1. / size[1]
-    x = (box[0] + box[1]) / 2.0
-    y = (box[2] + box[3]) / 2.0
-    w = box[1] - box[0]
-    h = box[3] - box[2]
-    x = x * dw
-    w = w * dw
-    y = y * dh
-    h = h * dh
-    return (x, y, w, h)
+    if size[0] != 0 and size[1]!=0:
+        dw = 1. / size[0]
+        dh = 1. / size[1]
+        x = (box[0] + box[1]) / 2.0
+        y = (box[2] + box[3]) / 2.0
+        w = box[1] - box[0]
+        h = box[3] - box[2]
+        x = x * dw
+        w = w * dw
+        y = y * dh
+        h = h * dh
+        return (x, y, w, h)
 
 
 def convert_annotation(image_id):
@@ -57,7 +59,8 @@ def convert_annotation(image_id):
         b = (float(xmlbox.find('xmin').text), float(xmlbox.find('xmax').text), float(xmlbox.find('ymin').text),
              float(xmlbox.find('ymax').text))
         bb = convert((w, h), b)
-        out_file.write(str(cls_id) + " " + " ".join([str(a) for a in bb]) + '\n')
+        if bb is not None:
+            out_file.write(str(cls_id) + " " + " ".join([str(a) for a in bb]) + '\n')
     in_file.close()
     out_file.close()
 

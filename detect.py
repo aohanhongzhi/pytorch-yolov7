@@ -124,10 +124,14 @@ def detect(save_img=False):
                                 label = f'{names[int(cls)]} {conf:.2f}'
                                 plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
                             else:
+                                label = f'{names[int(cls)]} {conf:.2f}'
+                                plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
                                 logger.info("{}  is not person", names[c])
                         else:
                             logger.warning("there is no {} in names", c)
                             pass
+            else:
+                logger.error("无法识别，可以尝试修改置信度阈值。--conf-thres 调到0.1试试。")
 
             # Print time (inference + NMS)
             # print(f'{s}Done. ({t2 - t1:.3f}s)')
@@ -141,7 +145,7 @@ def detect(save_img=False):
             if save_img:
                 if dataset.mode == 'image':
                     cv2.imwrite(save_path, im0)
-                    print(f" The image with the result is saved in: {save_path}")
+                    logger.info(f" The image with the result is saved in: {save_path}")
                 else:  # 'video' or 'stream'
                     if vid_path != save_path:  # new video
                         vid_path = save_path
