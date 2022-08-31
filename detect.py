@@ -51,10 +51,12 @@ def detect(save_img=False):
     # Set Dataloader
     vid_path, vid_writer = None, None
     if webcam:
+        # 网络相机
         view_img = check_imshow()
         cudnn.benchmark = True  # set True to speed up constant image size inference
         dataset = LoadStreams(source, img_size=imgsz, stride=stride)
     else:
+        # 加载图片
         dataset = LoadImages(source, img_size=imgsz, stride=stride)
 
     # Get names and colors
